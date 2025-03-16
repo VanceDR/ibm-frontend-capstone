@@ -47,7 +47,7 @@ const SignUp = () => {
     }
   };
   return (
-    <section className="container">
+    <section className="container" style={{marginTop: '10dvh'}}>
       <div className="grid">
         <h1>Sign Up</h1>
         <p>
@@ -107,6 +107,7 @@ const SignUp = () => {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
+              type="password"
               name="password"
               id="password"
               required
