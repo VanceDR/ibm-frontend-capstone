@@ -5,9 +5,10 @@ body {
     sans-serif;
 }
 
-section {
+section.container {
   max-width: 60ch;
   margin: auto;
+  margin-top: 5%;
   box-shadow: 0 0 5px 0 gray;
   padding: 1rem;
 }
