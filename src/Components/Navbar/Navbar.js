@@ -64,7 +64,7 @@ const Navbar = () => {
         {isLoggedIn?(
           <>
             <li className="link">
-              {username}
+              Welcome, {username.split('@')[0]}
             </li>
             <li className="link">
               <button className="btn2" onClick={handleLogout}>

@@ -37,12 +37,12 @@ const SignUp = () => {
       navigate("/");
       window.location.reload(); // Refresh the page
     } else {
-      if (json.errors) {
-        for (const error of json.errors) {
+      if (json.error && json.error.length > 0) {
+        for (const error of json.error) {
           setShowerr(error.msg); // Show error messages
         }
       } else {
-        setShowerr(json.error);
+        setShowerr(json.error)
       }
     }
   };
@@ -73,7 +73,6 @@ const SignUp = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
           </div>
           <div className="form-group">
             <label htmlFor="phone">Phone</label>
@@ -118,6 +117,8 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
+
           <div className="btn-group">
             <button
               type="submit"
