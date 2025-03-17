@@ -50,7 +50,8 @@ const SignUp = () => {
   return (
     <section className="container" style={{ marginTop: "10dvh" }}>
       <div className="grid">
-        <h1>Sign Up {role ? `as ${role}` : ""}</h1>
+        <h1>Sign Up</h1>
+        {role ? (<p>Sign up as {role}</p>) : ""}
         <p>
           Already a member?{" "}
           <span>
