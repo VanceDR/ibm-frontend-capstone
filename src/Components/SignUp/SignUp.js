@@ -8,6 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
   const [showerr, setShowerr] = useState(""); // State to show error messages
   const navigate = useNavigate(); // Navigation hook from react-router
   // Function to handle form submission
@@ -42,24 +43,38 @@ const SignUp = () => {
           setShowerr(error.msg); // Show error messages
         }
       } else {
-        setShowerr(json.error)
+        setShowerr(json.error);
       }
     }
   };
   return (
-    <section className="container" style={{marginTop: '10dvh'}}>
+    <section className="container" style={{ marginTop: "10dvh" }}>
       <div className="grid">
-        <h1>Sign Up</h1>
+        <h1>Sign Up {role ? `as ${role}` : ""}</h1>
         <p>
           Already a member?{" "}
           <span>
-            <Link to="/login" style={{color: '#2190ff'}}>
+            <Link to="/login" style={{ color: "#2190ff" }}>
               Login
             </Link>
           </span>
         </p>
 
         <form method="POST" onSubmit={register}>
+          <div className="form-group">
+            <label htmlFor="role">Role</label>
+            <select
+              id="role"
+              name="role"
+              placeholder="Select role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value=""></option>
+              <option value="Patient">Patient</option>
+              <option value="Doctor">Doctor</option>
+            </select>
+          </div>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
@@ -117,7 +132,11 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
+          {showerr && (
+            <div className="err" style={{ color: "red" }}>
+              {showerr}
+            </div>
+          )}
 
           <div className="btn-group">
             <button

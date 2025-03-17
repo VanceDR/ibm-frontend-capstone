@@ -10,6 +10,7 @@
 .searchpage-container img {
     max-width: 100%;
 }
+
 .search-results-container .doctorcard{
     display:flex;
     flex-direction:column;

@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { API_URL } from "../../config";
 import "./Login.css";
 
 const Login = () => {
-    // State variables for email and password
+  // State variables for email and password
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   // Get navigation function from react-router-dom
   const navigate = useNavigate();
   // Check if user is already authenticated, then redirect to home page
@@ -33,10 +33,10 @@ const Login = () => {
     const json = await res.json();
     if (json.authtoken) {
       // If authentication token is received, store it in session storage
-      sessionStorage.setItem('auth-token', json.authtoken);
-      sessionStorage.setItem('email', email);
+      sessionStorage.setItem("auth-token", json.authtoken);
+      sessionStorage.setItem("email", email);
       // Redirect to home page and reload the window
-      navigate('/');
+      navigate("/");
       window.location.reload();
     } else {
       // Handle errors if authentication fails
@@ -50,16 +50,11 @@ const Login = () => {
     }
   };
   return (
-    <section className="container" style={{marginTop: '10dvh'}}>
+    <section className="container" style={{ marginTop: "10dvh" }}>
       <div className="grid">
         <h1>Login</h1>
         <p>
-          Are you a new member?
-          <span>
-            <Link to="/signup" style={{color: "#2190ff"}}>
-              Sign Up Here
-            </Link>
-          </span>
+          Are you a new member? <Link to="/signup" style={{ color: "#2190ff" }}>Sign Up Here</Link>
         </p>
 
         <form onSubmit={login}>
