@@ -56,7 +56,7 @@ const Login = () => {
         <p>
           Are you a new member?
           <span>
-            <Link to="/Signup" style={{color: "#2190ff"}}>
+            <Link to="/signup" style={{color: "#2190ff"}}>
               Sign Up Here
             </Link>
           </span>
@@ -106,7 +106,7 @@ const Login = () => {
             </button>
           </div>
           <div>
-            <a href="#">Forgot Password?</a>
+            <Link to="/">Forgot Password?</Link>
           </div>
         </form>
       </div>

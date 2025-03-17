@@ -53,9 +53,9 @@ const SignUp = () => {
         <p>
           Already a member?{" "}
           <span>
-            <a href="/login" style={{color: '#2190ff'}}>
+            <Link to="/login" style={{color: '#2190ff'}}>
               Login
-            </a>
+            </Link>
           </span>
         </p>
 

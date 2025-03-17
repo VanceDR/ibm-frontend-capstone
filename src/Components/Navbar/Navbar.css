@@ -15,7 +15,6 @@ nav {
   display: grid;
   background: white;
   grid-template-areas: "a b" "c c";
-  
 }
 
 .nav-brand {
@@ -37,7 +36,7 @@ nav {
 .nav-button {
   font-size: 1.5rem;
   text-align: right;
-  grid-area : b;
+  grid-area: b;
 }
 
 .nav-links {
@@ -60,6 +59,8 @@ nav {
 
 .nav-links a {
   text-decoration: none;
+  display: inline-block;
+  width: 100%;
   color: black;
 }
 
@@ -71,6 +72,8 @@ nav {
   border-radius: 100vw;
   padding: 0.5rem 1rem;
   font-size: 1rem;
+  box-shadow: 0 0 4px 0 gray;
+  color: black;
   background: white;
   font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -87,8 +90,6 @@ nav {
   color: white;
   /* Hover effect */
 }
-
-
 
 @media (min-width: 768px) {
   nav {
