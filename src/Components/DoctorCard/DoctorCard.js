@@ -9,15 +9,14 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
-  const handleBooking = () => {
-    setShowModal(true);
-  };
-
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter(
       (appointment) => appointment.id !== appointmentId
     );
+    localStorage.setItem("doctorData", "");
+    localStorage.setItem(name, "");
     setAppointments(updatedAppointments);
+    window.dispatchEvent(new Event("storage"));
   };
 
   const handleFormSubmit = (appointmentData) => {
@@ -27,8 +26,36 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
     };
     const updatedAppointments = [...appointments, newAppointment];
     setAppointments(updatedAppointments);
+    localStorage.setItem(
+      "doctorData",
+      JSON.stringify({ name, speciality, experience, ratings })
+    );
+    localStorage.setItem(name, JSON.stringify(appointmentData));
     setShowModal(false);
+    window.dispatchEvent(new Event("storage"));
   };
+
+  useEffect(() => {
+    const storedDoctorData =
+      localStorage.getItem("doctorData") != ""
+        ? JSON.parse(localStorage.getItem("doctorData"))
+        : "";
+    const storedAppointmentData = storedDoctorData
+      ? JSON.parse(localStorage.getItem(storedDoctorData?.name))
+      : "";
+    // Set doctorData state if storedDoctorData exists
+    if (storedDoctorData?.name == name) {
+      // Set appointmentData state if storedAppointmentData exists
+      if (storedAppointmentData) {
+        const newAppointment = {
+          id: uuidv4(),
+          ...storedAppointmentData,
+        };
+        const updatedAppointments = [...appointments, newAppointment];
+        setAppointments(updatedAppointments);
+      }
+    }
+  }, []);
 
   return (
     <div className="doctor-card-container">
