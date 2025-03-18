@@ -58,7 +58,7 @@ const ReportsLayout = () => {
                 <td>{item.name}</td>
                 <td>{item.speciality}</td>
                 <td>
-                  <button>View Report</button>
+                  <a href={item.report} target="_blank"><button>View Report</button></a>
                 </td>
                 <td><a href={item.report} download><button>Download Report</button></a></td>
               </tr>
