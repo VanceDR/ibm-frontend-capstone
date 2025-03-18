@@ -25,7 +25,7 @@ const FindDoctorSearch = () => {
   };
   return (
     <div className="container">
-      <h1>Find a doctor and Consult instantly</h1>
+      <h1>Find a doctor at your own ease</h1>
       <div className="search-img">
         <i className="bi bi-hospital-fill"></i>
       </div>

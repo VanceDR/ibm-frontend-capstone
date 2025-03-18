@@ -42,7 +42,7 @@ nav {
 .nav-links {
   display: none;
   align-items: center;
-  gap: 1vw;
+  gap: 2vw;
   list-style-type: none;
   grid-area: c;
   padding: 1em;

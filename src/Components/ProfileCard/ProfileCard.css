@@ -1,0 +1,38 @@
+.profile-options {
+  position: relative;
+}
+
+.profile-dropdown {
+  display: none;
+  position: static;
+  padding: 1rem;
+}
+
+.profile-dropdown.active {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .profile-options {
+    position: relative;
+  }
+
+  .profile-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(50% + 1rem);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem 0.5rem;
+    background: white;
+    box-shadow: 0 0 2px 0 gray;
+    width: 15ch;
+    height: 5lh;
+    /* max-width: fit-content; */
+    text-align: center;
+  }
+
+  .profile-dropdown.active {
+    display: block;
+  }
+}

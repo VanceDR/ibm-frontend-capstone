@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import ProfileCard from "../ProfileCard/ProfileCard";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -8,8 +9,13 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [show, setShow] = useState(false);
   const handleClick = () => setClick(!click);
 
+  const handleShowProfile = () => {
+    setShow(!show);
+    return show;
+  };
   const handleLogout = () => {
     sessionStorage.removeItem("auth-token");
     sessionStorage.removeItem("name");
@@ -35,7 +41,7 @@ const Navbar = () => {
 
     if (storedemail) {
       setIsLoggedIn(true);
-      setEmail(storedemail)
+      setEmail(storedemail);
       setUsername(storedemail);
     }
   }, []);
@@ -54,7 +60,7 @@ const Navbar = () => {
           <a href="/">Home</a>
         </li>
         <li className="link">
-          <Link to="/instant-consultation">Appointments</Link>
+          <Link to="/consultation">Appointments</Link>
         </li>
         <li className="link">
           <a href="/">Health Blog</a>
@@ -62,10 +68,12 @@ const Navbar = () => {
         <li className="link">
           <Link to="/reviews">Reviews</Link>
         </li>
-        {isLoggedIn?(
+        {isLoggedIn ? (
           <>
             <li className="link">
-              Welcome, {email.split('@')[0] || username.split('@')[0]}
+              <ProfileCard onClick={handleShowProfile}>
+                Welcome, {email.split("@")[0] || username.split("@")[0]}
+              </ProfileCard>
             </li>
             <li className="link">
               <button className="btn2" onClick={handleLogout}>

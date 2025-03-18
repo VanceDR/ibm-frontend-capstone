@@ -1,0 +1,8 @@
+.profile-container {
+    margin: auto;
+    margin-top: 10dvh;
+    padding: 1rem;
+    max-width: 50ch;
+    width: 100%;
+    box-shadow: 0 0 3px 0 gray;
+}

@@ -1,0 +1,77 @@
+.reports-con {
+    margin: auto;
+    margin-top: 10dvh;
+    padding: 1rem;
+    max-width: 90ch;
+    width: 100%;
+}
+
+button a {
+    color : white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: hsl(0, 0%, 95%);
+}
+td, th {
+    padding: 0.5rem;
+    border-bottom: 2px solid hsl(0, 0%, 90%);
+}
+
+.reviewed {
+    color: white;
+    background: gray;
+}
+.reviewed:hover {
+    background: gray;
+}
+
+form input, form textarea {
+    padding: 1rem;
+}
+
+form textarea {
+    height: 7lh;
+}
+
+form h2 {
+    margin: 0;
+    text-align:center;
+}
+
+.star-rating {
+    display: inline-flex;
+    gap: 0.2rem;
+    align-items:center;
+}
+
+.star-rating label {
+    padding: 0;
+    margin: 0;
+}
+
+.star-rating button {
+  background-color: transparent;
+  padding: 0.2rem;
+  margin: 0;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.star-rating i {
+    font-size: 1.5rem;
+}
+.on {
+  color: yellow;
+}
+.off {
+  color: gray;
+}
